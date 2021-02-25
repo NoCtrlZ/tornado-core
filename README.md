@@ -36,7 +36,7 @@ Underlying circomlib dependency is currently being audited, and the team already
 
 ## Requirements
 
-1. `node v11.15.0`
+1. `node v13.12.0`
 2. `npm install -g npx`
 
 ## Usage
