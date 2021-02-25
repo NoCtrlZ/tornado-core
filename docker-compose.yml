@@ -11,3 +11,10 @@ services:
       - /app/build
       - /app/.env
       - /app/index.js
+  ganache:
+    build: ganache
+    container_name: ganache
+    tty: true
+    stdin_open: true
+    ports:
+      - "7545:7545"
