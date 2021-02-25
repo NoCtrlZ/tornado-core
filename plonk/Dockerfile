@@ -13,5 +13,3 @@ RUN echo 'nameserver 8.8.8.8' > /etc/resolv.conf &&\
 FROM alpine:3.13.1
 
 COPY --from=builder /root/.cargo/bin/plonkit /bin/
-
-RUN plonkit --version
