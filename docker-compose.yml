@@ -1,0 +1,18 @@
+version: '3'
+services:
+  tornado:
+    build: .
+    container_name: tornado
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/build
+  ganache:
+    build: ganache
+    container_name: ganache
+    tty: true
+    stdin_open: true
+    ports:
+      - "7545:7545"

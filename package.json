@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:circuit:compile": "npx circom circuits/withdraw.circom -o build/circuits/withdraw.json && npx snarkjs info -c build/circuits/withdraw.json",
+    "build:circuit:compile": "npx circom /app/circuits/withdraw.circom -o build/circuits/withdraw.json && npx snarkjs info -c build/circuits/withdraw.json",
     "build:circuit:setup": "npx snarkjs setup --protocol groth -c build/circuits/withdraw.json --pk build/circuits/withdraw_proving_key.json --vk build/circuits/withdraw_verification_key.json",
     "build:circuit:bin": "node node_modules/websnark/tools/buildpkey.js -i build/circuits/withdraw_proving_key.json -o build/circuits/withdraw_proving_key.bin",
     "build:circuit:contract": "npx snarkjs generateverifier -v build/circuits/Verifier.sol --vk build/circuits/withdraw_verification_key.json",
@@ -14,6 +14,7 @@
     "build": "npm run build:circuit && npm run build:contract && npm run build:browserify",
     "browserify": "npm run build:browserify",
     "test": "npx truffle test",
+    "test:ganache": "npx truffle test --network ganache",
     "migrate": "npm run migrate:kovan",
     "migrate:dev": "npx truffle migrate --network development --reset",
     "migrate:kovan": "npx truffle migrate --network kovan --reset",
