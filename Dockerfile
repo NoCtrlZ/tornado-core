@@ -5,14 +5,13 @@ FROM node:13.12.0-alpine
 WORKDIR /app
 
 COPY --from=builder /bin/plonkit /bin/
+COPY circuits circuits
+COPY package.json truffle-config.js /
+COPY .env.example .env
 
 RUN apk add git
 
-COPY . .
+# RUN yarn &&\
+#     yarn build
 
-RUN yarn &&\
-    yarn build
-
-RUN cp .env.example .env
-
-ENTRYPOINT yarn test:ganache
+# ENTRYPOINT yarn test:ganache
