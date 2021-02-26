@@ -6,12 +6,12 @@ WORKDIR /app
 
 COPY --from=builder /bin/plonkit /bin/
 COPY circuits circuits
-COPY package.json truffle-config.js /
+COPY package.json truffle-config.js ./
 COPY .env.example .env
 
 RUN apk add git
 
-# RUN yarn &&\
-#     yarn build
+RUN yarn &&\
+    yarn build
 
 # ENTRYPOINT yarn test:ganache
